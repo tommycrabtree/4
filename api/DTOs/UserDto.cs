@@ -1,4 +1,4 @@
-namespace api.Entities;
+namespace api.DTOs;
 
 public class UserDto
 {
