@@ -1,0 +1,16 @@
+<h4>Internal Server error</h4>
+@if (error) {
+  <h5 class="text-danger">Error: {{error.message}}</h5>
+  <p class="font-weight-bold">Note: If you are seeing this error, then Angular is all good, Autobot.</p>
+  <p>What to do next?</p>
+  <ol>
+    <li>Open chrome dev tools and check the failing network request in the network tab.</li>
+    <li>Examine the URL of the failing request.</li>
+    <li>If you can reproduce the error if Postman, then Angular is working.</li>
+  </ol>
+  <p class="font-weight-bold">Here's the stack trace from Optimus Prime.
+    The first two lines show the line of code causing the opportunity.'</p>
+  <code class="mt-5" style="background-color: whitesmoke;">
+    {{error.details}}
+  </code>
+}
