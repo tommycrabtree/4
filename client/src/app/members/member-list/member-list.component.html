@@ -1,11 +1,13 @@
 <div class="row">
 
   <div class="text-center mt-3">
-    <h2>Your matches = {{memberService.paginatedResult()?.pagination?.totalItems}}</h2>
+    <h2>Your matches = {{memberService.paginatedResult()?.
+      pagination?.totalItems}}</h2>
   </div>
 
   <div class="container mt=3">
-    <form #form="ngForm" class="d-flex mb-3" (ngSubmit)="loadMembers()">
+    <form #form="ngForm"
+      class="d-flex mb-3" (ngSubmit)="loadMembers()">
 
       <div class="d-flex mx-2">
         <label class="col-form-label">Age from: </label>
@@ -41,8 +43,11 @@
         </select>
       </div>
 
-      <button class="btn btn-primary ms-1" type="submit">Apply Filters</button>
-      <button (click)="resetFilters()" class="btn btn-info ms-1" type="button">Reset Filters</button>
+      <button class="btn btn-primary ms-1" type="submit">
+        Apply Filters
+      </button>
+      <button (click)="resetFilters()" class="btn btn-info ms-1"
+        type="button">Reset Filters</button>
 
       <div class="col">
         <div class="btn-group float-end">
@@ -76,31 +81,34 @@
 
 </div>
 
-<!-- In the member-list componenent, the memberService of type MembersService is not private,
-      which means I have access to it here in the template.
+<!-- In the member-list componenent, the memberService of type MembersService
+      is not private, which means I have access to it here in the template.
 
-      The MembersService is a service, which means it's a class.  One of its class properties
-      is the paginatedResult().  The paginatedResult() is a signal of type PaginatedResult.
-      The PaginatedResult is a class in the pagination.ts file.  The PaginatedResult has
-      two class properties: items, which is of type T; and pagination, which is of type
-      Pagination.  The Pagination class is also defined in pagination.ts.  Its class properties
+      The MembersService is a service, which means it's a class.  One of its
+      class properties is the paginatedResult().  The paginatedResult()
+      is a signal of type PaginatedResult.  The PaginatedResult is a class
+      in the pagination.ts file.  The PaginatedResult has two class properties:
+      items, which is of type T; and pagination, which is of type Pagination.
+      The Pagination class is also defined in pagination.ts.  Its class properties
       are: currentPage, itemsPerPage, totalItems, and totalPages.
 
-      Because the memberService is a MembersService, the memberService has a paginatedResult()
-      signal as one of its properties.  The paginatedResult() signal is a type
-      of PaginatedResult, which means the pagintedResult() signal can have items of type T
-      and it has the Pagination properties defined in the Pagination interface.
+      Because the memberService is a MembersService, the memberService has
+      a paginatedResult() signal as one of its properties.  The paginatedResult()
+      signal is a type of PaginatedResult, which means the pagintedResult() signal
+      can have items of type T and it has the Pagination properties defined
+      in the Pagination interface.
 
-      If the member-list component is being displayed, then that means the member-list
-      component has the pagination inside the pagintedResult; this is why Neil feels
-      comfortable using the '!' for the 'pagination' property of the [totalItems].
-      The TypeScript exclamation mark is known as the non-null assertion operator.
-      It tells the TypeScript compiler that a value typed as optional cannot be null
-      or undefined. For example, if we define a variable as possibly a string or undefined,
-      the ! operator tells the compiler to ignore the possibility of it being undefined.
+      If the member-list component is being displayed, then that means
+      the member-list component has the pagination inside the pagintedResult;
+      this is why Neil feels comfortable using the '!' for the 'pagination'
+      property of the [totalItems].  The TypeScript exclamation mark is known
+      as the non-null assertion operator.  It tells the TypeScript compiler
+      that a value typed as optional cannot be null or undefined. For example,
+      if we define a variable as possibly a string or undefined, the ! operator
+      tells the compiler to ignore the possibility of it being undefined.
 
-      To add a current page property to the pagination, I need two way binding between the
-      pagination template and the component, so I use ngModel and set
+      To add a current page property to the pagination, I need two way binding
+      between the pagination template and the component, so I use ngModel and set
       [(ngModel)]="memberService.paginatedResult()?.pagination!.currentPage".
 -->
 
